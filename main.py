@@ -1,6 +1,7 @@
 from email import header
 from inspect import formatannotationrelativeto
 import os
+from this import s
 from colorama import Fore as cfore
 import requests as res
 from sys import exit,argv
@@ -36,7 +37,13 @@ def get_file_name():
     file_name = fl[::-1]
     return file_name
 
-def save(a,save_path,file_name=get_file_name()):
+def save(a,save_path="./Download",file_name=get_file_name()):
+    try:
+        os.listdir(save_path)
+    except:
+        print(f"save_path:{save_path} not found,create it.")
+        os.mkdir(save_path)
+    print(f"saving...(as {file_name})")
     with open(save_path+file_name,'wb') as f:
         f.write(a.content)
 
