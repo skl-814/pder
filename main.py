@@ -1,12 +1,11 @@
-from email import header
-from inspect import formatannotationrelativeto
+#!/bin/python3
 import os
-from this import s
 from colorama import Fore as cfore
 import requests as res
 from sys import exit,argv
 #url = input("url:\n")
 url = 'http://127.0.0.1:8000/index.html'
+__version__ = 'v0.1-beta-a1'
 
 retry_num = 0
 header = {
@@ -52,7 +51,8 @@ def download(url,headers=header,retry_num_max=3,save_path='.'):
 
 def main():
 
-    download(url=url)
+    print(f"pder.py(version {__version__})")
+    download(url=url,save_path='1/2/3/4/5/6/7/8/9/0')
 
 
 if __name__ == "__main__":
