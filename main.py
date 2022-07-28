@@ -16,7 +16,6 @@ def conntect(url,headers=header,retry_num_max=3):
 
     a = res.get(url,headers=headers)
     if a.status_code == 404:
-        print(cfore.YELLOW+ "404 not found" +cfore.RESET)
         retry_num += 1
         if retry_num <= retry_num_max:
             print(f"retry...({retry_num} times)")
@@ -48,5 +47,13 @@ def save(a,save_path="./Download",file_name=get_file_name()):
         f.write(a.content)
 
 def download(url,headers=header,retry_num_max=3,save_path='.'):
-    a = conntect()
+    a = conntect(url=url)
     save(a,save_path=save_path)
+
+def main():
+
+    download(url=url)
+
+
+if __name__ == "__main__":
+    main()
